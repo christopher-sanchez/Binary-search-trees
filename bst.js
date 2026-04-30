@@ -25,3 +25,12 @@ buildTree(sortedArray) {
 
 }
 }
+
+includes(value, node=this.root){
+    if(!node) return false;
+    if(value === node.data) return true;
+
+    return value < node.data 
+    ? this.includes(value,node.left)
+    : this.includes(value,node.right);
+}
