@@ -34,3 +34,16 @@ includes(value, node=this.root){
     ? this.includes(value,node.left)
     : this.includes(value,node.right);
 }
+
+insert(value, node = this.root){
+    if(!node) return new Node(value);
+
+    if(value === node.data) return node;
+
+    if(value < node.data){
+        node.left = this.insert(value, node.left);
+    }else {
+        node.right = this.insert(value, node.right);
+    }
+    return node;
+}
