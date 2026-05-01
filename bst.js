@@ -110,5 +110,16 @@ postOrderForEach(callback, node = this.root){
     callback(node.data);
 }
 
+height(value, node = this.root){
+    const target = this.find(value);
+    if(!target) return undefined;
+
+    const getHeight = (node) => {
+        if(!node) return -1;
+        return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+    };
+    return getHeight(target);
+}
+
 
 }
