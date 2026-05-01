@@ -1,3 +1,5 @@
+const { he } = require("date-fns/locale");
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -130,5 +132,23 @@ depth(value, node = this.root, curretDepth = 0){
     : this.depth(value, node.right, curretDepth + 1);
 }
 
+isBalanced(node = this.root){
+    if(!node) return true;
+
+    const height = (n) => {
+        if(!n) return -1;
+        return 1 + Math.max(height(n.left), height(n.right));
+    };
+
+    const leftHeight = height(node.left);
+    const rightHeight = height(node.right);
+
+    const balanced =
+    Math.abs(leftHeight - rightHeight) <= 1 &&
+    this.isBalanced(node.left) &&
+    this.isBalanced(node.right);
+
+    return balanced;
+}
 
 }
