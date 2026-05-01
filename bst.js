@@ -68,6 +68,23 @@ deleteItem(value, node = this.root) {
     return node;
 }
 
+levelOrderForEach(callback){
+    if(!callback) throw new Error("Callback required");
+
+    const queue = [this.root];
+
+    while(queue.length){
+        const node = queue.shift();
+        callback(node.data);
+        
+        if(node.left) queue.push(node.left);
+        if(node.right) queue.push(node.right);
+    }
+}
+
+inOrderForEach(callback, node=this.root){
+    if(!callback) throw new Error
+}
 
 
 }
