@@ -151,4 +151,11 @@ isBalanced(node = this.root){
     return balanced;
 }
 
+rebalance(){
+    const values = [];
+    this.inOrderForEach((v) => values.push(v));
+    this.root = this.buildTree(values);
+}
+
+
 }
