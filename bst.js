@@ -121,5 +121,14 @@ height(value, node = this.root){
     return getHeight(target);
 }
 
+depth(value, node = this.root, curretDepth = 0){
+    if(!node) return undefined;
+    if(node.data === value) return currentDepth;
+
+    return value < node.data
+    ? this.depth(value, node.left, curretDepth +1 )
+    : this.depth(value, node.right, curretDepth + 1);
+}
+
 
 }
