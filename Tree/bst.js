@@ -1,6 +1,6 @@
 const { he } = require("date-fns/locale");
 
-class Node {
+ class Node {
     constructor(data) {
         this.data = data;
         this.left = null;
@@ -9,7 +9,7 @@ class Node {
 
 }
 
-class Tree {
+ class Tree {
     constructor(array) {
         this.root = this.buildTree([...new Set(array)].sort((a, b) => a - b));
     }
@@ -159,3 +159,5 @@ rebalance(){
 
 
 }
+
+module.exports = { Tree, Node };
